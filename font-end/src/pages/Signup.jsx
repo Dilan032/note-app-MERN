@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import axios from 'axios';
 
 export const Signup = () => {
 
@@ -10,7 +11,7 @@ export const Signup = () => {
         e.preventDefault()
         try {
             const response = await axios.post(
-                "http://localhost:2000/api/auth/register",
+                "http://localhost:3000/api/auth/register",
                 {name, email, password}
             );
             console.log(response);
