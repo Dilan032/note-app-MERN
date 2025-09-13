@@ -1,16 +1,13 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { Signup } from "./pages/Signup"
 
 function App() {
-  const [count, setCount] = useState(0)
 
   return (
     <>
-      <p className='text-3xl font-bold underline'>
-        hello
-      </p>
+      {/* <p className='text-4xl font-bold'>
+        Note app
+      </p> */}
+      <Signup />
     </>
   )
 }
