@@ -1,8 +1,10 @@
 import React, { useState } from 'react'
 import axios from 'axios';
-import { Link, Navigate } from "react-router";
+import { Link, useNavigate } from "react-router-dom";
 
 export const Signup = () => {
+
+    const navigate = useNavigate();
 
     const [name, setName] = useState('')
     const [email, setEmail] = useState('')
@@ -17,7 +19,7 @@ export const Signup = () => {
             );
             
             if(response.data.success){
-                Navigate('/login')
+                navigate('/login')
             }
             
         } catch (error) {
