@@ -2,9 +2,8 @@ import React, { useState } from 'react'
 import axios from 'axios';
 import { Link, Navigate } from "react-router";
 
-export const Signup = () => {
+const Login = () => {
 
-    const [name, setName] = useState('')
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
 
@@ -12,12 +11,13 @@ export const Signup = () => {
         e.preventDefault()
         try {
             const response = await axios.post(
-                "http://localhost:3000/api/auth/register",
-                {name, email, password}
+                "http://localhost:3000/api/auth/login",
+                {email, password}
             );
-            
+
             if(response.data.success){
-                Navigate('/login')
+              localStorage.setItem("token", response.data.token)
+              Navigate('/')
             }
             
         } catch (error) {
@@ -28,19 +28,8 @@ export const Signup = () => {
   return (
     <div className='flex justify-center items-center min-h-screen bg-gray-100'>
         <div className='shadow p-6 w-80 bg-white'>
-            <h2 className='text-2xl font-bold mb-4'>Signup</h2>
+            <h2 className='text-2xl font-bold mb-4'>Login</h2>
             <form onSubmit={handleSubmit}>
-                <div className='mb-4'>
-                    <label className='block' htmlFor="name">Name</label>
-                    <input 
-                        type="text" 
-                        onChange={(e) => setName(e.target.value)}
-                        className='w-full px-3 py-2 border'
-                        id="name" 
-                        placeholder='Enter Name' 
-                        required
-                    />
-                </div>
                 <div className='mb-4'>
                     <label className='block' htmlFor="email">Email</label>
                     <input 
@@ -68,10 +57,10 @@ export const Signup = () => {
                         type="submit"
                         className='w-full bg-teal-600 text-white py-2'
                     >
-                        Signup
+                        Login
                     </button>
                     <p className='text-center'> 
-                        already have an acount ? <Link to="/login">Login</Link>
+                        Don't have an acount ? <Link to='/register'>Register</Link> 
                     </p>
                 </div>
             </form>
@@ -79,3 +68,5 @@ export const Signup = () => {
     </div>
   )
 }
+
+export default Login;
