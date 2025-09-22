@@ -4,9 +4,6 @@ function App() {
 
   return (
     <>
-      {/* <p className='text-4xl font-bold'>
-        Note app
-      </p> */}
       <Signup />
     </>
   )
