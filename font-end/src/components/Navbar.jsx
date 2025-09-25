@@ -7,19 +7,19 @@ const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
-    <nav className="bg-gray-200 p-4 text-white">
+    <nav className="bg-gray-400 p-4 text-white">
       <div className="flex justify-between items-center">
 
-        <div className="text-2xl font-bold text-black">
+        <div className="text-3xl font-bold text-black">
           <Link to="/">Note App</Link>
         </div>
 
         {/* Desktop Search */}
-        <div className="hidden md:block flex-1 mx-4">
+        <div className="hidden md:block justify-end mx-4">
           <input
             type="text"
             placeholder="Search..."
-            className="w-full bg-gray-600 px-4 py-2 rounded-2xl"
+            className="w-80 bg-gray-200 text-black px-4 py-2 rounded-2xl focus:ring-1 focus:ring-teal-400 focus:outline-none"
           />
         </div>
 
@@ -41,13 +41,13 @@ const Navbar = () => {
         </button>
 
         {/* Desktop Menu */}
-        <div className="hidden md:flex items-center space-x-4">
+        <div className="hidden md:flex items-center space-x-2.5">
           {!user ? (
             <>
-              <Link to="/login" className="bg-blue-500 px-4 py-2 rounded-2xl">
+              <Link to="/login" className=" bg-teal-600 hover:bg-teal-700 text-white px-4 py-2 rounded">
                 Login
               </Link>
-              <Link to="/signup" className="bg-green-500 px-4 py-2 rounded-2xl">
+              <Link to="/register" className=" bg-teal-600 hover:bg-teal-700 text-white px-4 py-2 rounded">
                 SignUp
               </Link>
             </>
@@ -70,21 +70,21 @@ const Navbar = () => {
           <input
             type="text"
             placeholder="Search..."
-            className="w-full bg-gray-600 px-4 py-2 rounded-2xl"
+            className="w-full bg-gray-200 px-4 py-2 rounded-2xl focus:ring-1 focus:ring-teal-400 focus:outline-none"
           />
           <div className="flex flex-col space-y-2">
             {!user ? (
               <>
                 <Link
                   to="/login"
-                  className="bg-blue-500 px-4 py-2 rounded-2xl text-center"
+                  className=" bg-teal-600 hover:bg-teal-700 text-white px-4 py-2 rounded-2xl text-center"
                   onClick={() => setMenuOpen(false)}
                 >
                   Login
                 </Link>
                 <Link
                   to="/register"
-                  className="bg-green-500 px-4 py-2 rounded-2xl text-center"
+                  className="bg-teal-600 hover:bg-teal-700 text-white px-4 py-2 rounded-2xl text-center"
                   onClick={() => setMenuOpen(false)}
                 >
                   SignUp
